@@ -93,8 +93,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * Reveal on Scroll Interaction (Intersection Observer)
+     * Active Link Highlighting on Scroll
      */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksList = document.querySelectorAll('.nav-links a');
+
+    const highlightNavLink = () => {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + headerHeight + 50;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinksList.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', highlightNavLink, { passive: true });
+    highlightNavLink(); // Initial call
     const revealSections = () => {
         const observerOptions = {
             threshold: 0.1,
@@ -134,46 +159,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * WhatsApp Form Submission
+     * WhatsApp Form Submission with Enhanced Mobile UX & Success State
      */
-    if (contactForm) {
+    const successState = document.getElementById('form-success');
+    const resetFormBtn = document.getElementById('reset-form');
+
+    if (contactForm && successState) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
             
-            try {
-                const name = document.getElementById('name').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const service = document.getElementById('service').value;
-                const message = document.getElementById('message').value.trim();
-                
-                if (!name || !phone) return;
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const serviceInput = document.getElementById('service');
+            const messageInput = document.getElementById('message');
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            
+            // Simple validation UI
+            let hasError = false;
+            [nameInput, phoneInput, serviceInput].forEach(input => {
+                const parent = input.closest('.form-group');
+                if (!input.value.trim()) {
+                    parent.classList.add('error');
+                    parent.setAttribute('data-error', 'Required field');
+                    hasError = true;
+                } else {
+                    parent.classList.remove('error');
+                }
+            });
 
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Processing...';
+            // Phone specific validation
+            if (phoneInput.value.trim() && !/^\d{10,12}$/.test(phoneInput.value.replace(/\D/g,''))) {
+                const parent = phoneInput.closest('.form-group');
+                parent.classList.add('error');
+                parent.setAttribute('data-error', 'Enter valid 10-digit number');
+                hasError = true;
+            }
 
-                const whatsappNumber = "919136098583"; 
-                const text = `*New Enterprise Inquiry*%0a` +
-                             `*Name:* ${encodeURIComponent(name)}%0a` +
-                             `*Phone:* ${encodeURIComponent(phone)}%0a` +
-                             `*Service:* ${encodeURIComponent(service)}%0a` +
-                             `*Brief:* ${encodeURIComponent(message)}`;
-                
-                const whatsappLink = `https://wa.me/${whatsappNumber}?text=${text}`;
+            if (hasError) return;
+
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loading-spinner"></span> Processing...';
+
+            const whatsappNumber = "919136098583"; 
+            const text = `*New Request Call Back*%0a` +
+                         `*Name:* ${encodeURIComponent(nameInput.value.trim())}%0a` +
+                         `*Phone:* ${encodeURIComponent(phoneInput.value.trim())}%0a` +
+                         `*Service:* ${encodeURIComponent(serviceInput.options[serviceInput.selectedIndex].text)}%0a` +
+                         `*Brief:* ${encodeURIComponent(messageInput.value.trim() || 'No message provided')}`;
+            
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${text}`;
+            
+            // Simulation of submission & transition to success state
+            setTimeout(() => {
+                // Open WhatsApp
                 window.open(whatsappLink, '_blank', 'noopener,noreferrer');
                 
-                setTimeout(() => {
-                    contactForm.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                }, 1000);
-
-            } catch (error) {
+                // Show Success State
+                contactForm.classList.add('hidden');
+                successState.classList.remove('hidden');
+                
+                // Reset button for next time
                 submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-                alert('An error occurred. Please try again.');
-            }
+                submitBtn.innerHTML = originalBtnText;
+                
+                // Scroll to success message
+                successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1500);
+        });
+
+        // Reset Form Logic
+        if (resetFormBtn) {
+            resetFormBtn.addEventListener('click', () => {
+                contactForm.reset();
+                contactForm.classList.remove('hidden');
+                successState.classList.add('hidden');
+                contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Clear errors on input
+        contactForm.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('input', () => {
+                input.closest('.form-group').classList.remove('error');
+            });
         });
     }
 });
