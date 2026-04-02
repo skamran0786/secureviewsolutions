@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let headerHeight = header ? header.offsetHeight : 80;
 
     const handleScroll = () => {
+        if (!header) return;
         const isScrolled = window.scrollY > 50;
         if (header.classList.contains('scrolled') !== isScrolled) {
             header.classList.toggle('scrolled', isScrolled);
@@ -77,9 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 
                 // Recalculate header height in case it changed
-                const currentHeaderHeight = header.classList.contains('scrolled') ? 
+                const currentHeaderHeight = header ? (header.classList.contains('scrolled') ? 
                                           header.offsetHeight : 
-                                          (header.offsetHeight * 0.8); // Estimate scrolled height
+                                          (header.offsetHeight * 0.8)) : 80; // Estimate scrolled height or fallback to 80
 
                 const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 const offsetPosition = elementPosition - currentHeaderHeight;
@@ -100,7 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const highlightNavLink = () => {
         let currentSectionId = '';
-        const scrollPosition = window.scrollY + headerHeight + 50;
+        const currentHeaderHeight = header ? header.offsetHeight : 80;
+        const scrollPosition = window.scrollY + currentHeaderHeight + 50;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -144,6 +146,16 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     revealSections();
+
+    // Initial Lucide icons creation with a fallback
+    const initLucide = () => {
+        if (window.lucide) {
+            lucide.createIcons();
+        } else {
+            setTimeout(initLucide, 100);
+        }
+    };
+    initLucide();
 
     /**
      * FAQ Accordion Logic
@@ -199,33 +211,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const originalBtnText = submitBtn.innerHTML;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="loading-spinner"></span> Processing...';
+            submitBtn.innerHTML = '<span class="loading-spinner"></span> Sending...';
 
-            const whatsappNumber = "919136098583"; 
-            const text = `*New Request Call Back*%0a` +
-                         `*Name:* ${encodeURIComponent(nameInput.value.trim())}%0a` +
-                         `*Phone:* ${encodeURIComponent(phoneInput.value.trim())}%0a` +
-                         `*Service:* ${encodeURIComponent(serviceInput.options[serviceInput.selectedIndex].text)}%0a` +
-                         `*Brief:* ${encodeURIComponent(messageInput.value.trim() || 'No message provided')}`;
-            
-            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${text}`;
-            
-            // Simulation of submission & transition to success state
-            setTimeout(() => {
-                // Open WhatsApp
-                window.open(whatsappLink, '_blank', 'noopener,noreferrer');
-                
-                // Show Success State
-                contactForm.classList.add('hidden');
-                successState.classList.remove('hidden');
-                
-                // Reset button for next time
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    // Show Success State
+                    contactForm.classList.add('hidden');
+                    successState.classList.remove('hidden');
+                    
+                    // Optional: Open WhatsApp as well if you still want that
+                    const whatsappNumber = "919136098583"; 
+                    const serviceText = serviceInput.selectedIndex !== -1 ? serviceInput.options[serviceInput.selectedIndex].text : 'Not selected';
+                    const text = `*New Request Call Back*%0a` +
+                                 `*Name:* ${encodeURIComponent(nameInput.value.trim())}%0a` +
+                                 `*Phone:* ${encodeURIComponent(phoneInput.value.trim())}%0a` +
+                                 `*Service:* ${encodeURIComponent(serviceText)}%0a` +
+                                 `*Brief:* ${encodeURIComponent(messageInput.value.trim() || 'No message provided')}`;
+                    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${text}`;
+                    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
+                } else {
+                    console.log(response);
+                    alert(json.message);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Something went wrong!");
+            })
+            .then(function() {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
                 
-                // Scroll to success message
-                successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 1500);
+                if (successState.classList.contains('hidden') === false) {
+                    successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
         });
 
         // Reset Form Logic
