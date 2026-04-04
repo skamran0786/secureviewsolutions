@@ -1,3 +1,14 @@
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('fade-out');
+        document.body.classList.remove('loading');
+        setTimeout(() => {
+            preloader.remove();
+        }, 500);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // Cache DOM elements
     const header = document.getElementById('header');
@@ -94,34 +105,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * Active Link Highlighting on Scroll
+     * Active Link Highlighting using IntersectionObserver (Performance Optimized)
      */
     const sections = document.querySelectorAll('section[id]');
     const navLinksList = document.querySelectorAll('.nav-links a');
 
-    const highlightNavLink = () => {
-        let currentSectionId = '';
-        const currentHeaderHeight = header ? header.offsetHeight : 80;
-        const scrollPosition = window.scrollY + currentHeaderHeight + 50;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-
-        navLinksList.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('active');
-            }
-        });
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '-10% 0px -70% 0px' // Trigger when section is in the upper part of the viewport
     };
 
-    window.addEventListener('scroll', highlightNavLink, { passive: true });
-    highlightNavLink(); // Initial call
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinksList.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => navObserver.observe(section));
+
     const revealSections = () => {
         const observerOptions = {
             threshold: 0.1,

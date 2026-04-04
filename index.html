@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SBKC8P4N1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-3SBKC8P4N1');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecureViewSolutions - Premium IT & Security Solutions Mumbai</title>
@@ -18,25 +9,42 @@
     <!-- Favicon Placeholder -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 
-    <!-- Fonts -->
+    <!-- Performance: Resource Hints & Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Critical Resources Preload -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    
+    <!-- Icons (Specific Version for Caching) -->
+    <script src="https://unpkg.com/lucide@0.359.0/dist/umd/lucide.min.js" defer></script>
     
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Performance: Preconnect to critical domains -->
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="preconnect" href="https://unpkg.com">
-    
-    <!-- Preload critical hero font weight -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" as="style">
+    <!-- Preload Critical Hero Image (LCP Optimization) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" imagesrcset="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400 400w, https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800 800w" imagesizes="(max-width: 768px) 400px, 800px">
 </head>
-<body>
+<body class="loading">
+    <!-- Preloader -->
+    <div id="preloader" aria-hidden="true">
+        <div class="preloader-content">
+            <img src="img/logo.png" alt="SecureViewSolutions Logo" class="preloader-logo" width="220" height="54" decoding="async">
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Skip to content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -45,7 +53,7 @@
         <div class="container">
             <nav class="nav" aria-label="Main Navigation">
                 <a href="#" class="logo" aria-label="SecureViewSolutions Home">
-                    <img src="img/logo.png" alt="SecureViewSolutions Logo" class="logo-img" width="180" height="44" fetchpriority="high">
+                    <img src="img/logo.png" alt="SecureViewSolutions Logo" class="logo-img" width="180" height="44" fetchpriority="high" decoding="async">
                 </a>
                 <ul class="nav-links" id="nav-menu">
                     <li><a href="#home">Home</a></li>
@@ -208,7 +216,7 @@
                     <!-- Left Side: Visual Element -->
                     <div class="why-visual">
                         <div class="visual-card">
-                            <div class="visual-image" style="background-image: url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800');"></div>
+                            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" alt="SecureView Solutions Technology" class="visual-image" loading="lazy" width="800" height="600" decoding="async">
                             <div class="stats-overlay">
                                 <div class="stat-pill">
                                     <i data-lucide="shield-check"></i>
@@ -341,16 +349,16 @@
                 <div class="testimonials-grid">
                     <article class="testimonial-card">
                         <div class="testimonial-header">
-                            <div class="client-avatar">RM</div>
+                            <div class="client-avatar">SS</div>
                             <div class="client-meta">
-                                <strong>Rajesh Mehta</strong>
-                                <span>Director, Mehta Textiles</span>
+                                <strong>Sabir Siddiquee</strong>
+                                <span>Verified Customer // House Owner</span>
                             </div>
                         </div>
                         <div class="stars" aria-label="5 out of 5 stars">
                             <i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i>
                         </div>
-                        <blockquote class="review">"SecureViewSolutions overhauled our entire warehouse security. Their IP-based solution provided much better clarity than our previous analog system. Professional and on-time."</blockquote>
+                        <blockquote class="review">"3 CCTV cameras lagwaye ghar ke liye, aur honestly kaafi acha kaam kiya. Installation clean tha, wire properly manage kiya, koi jaldbaazi nahi ki. Camera quality clear hai, raat ko bhi achha dikhta hai. Ab mobile se bhi ghar dekh sakte hain easily. Setup ke baare mein achhe se samjha diya gaya. Jo kaha tha, wahi kiya, bina kisi faaltu drama ya hidden charge nahi. Ghar ke liye reliable service hai, recommend karunga."</blockquote>
                     </article>
                     <article class="testimonial-card">
                         <div class="testimonial-header">
@@ -483,32 +491,38 @@
                     <p>Showcasing our successful security and IT installations across the city.</p>
                 </div>
                 <div class="gallery-grid">
-                    <div class="gallery-item" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400&fm=webp');" loading="lazy">
+                    <div class="gallery-item" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400&fm=webp" alt="Vashi Shop Installation" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
                         <div class="gallery-overlay">
                             <span>Vashi Shop: 4 HD Hikvision cameras with mobile viewing.</span>
                         </div>
                     </div>
-                    <div class="gallery-item" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=400&fm=webp');" loading="lazy">
+                    <div class="gallery-item" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=400&fm=webp" alt="BKC Office Setup" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
                         <div class="gallery-overlay">
                             <span>BKC Office: 16 IP cameras with centralized server setup.</span>
                         </div>
                     </div>
-                    <div class="gallery-item" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=400&fm=webp');" loading="lazy">
+                    <div class="gallery-item" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=400&fm=webp" alt="Thane Home Security" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
                         <div class="gallery-overlay">
                             <span>Thane Home: 4 night vision cameras with video door phone.</span>
                         </div>
                     </div>
-                    <div class="gallery-item" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&fm=webp');" loading="lazy">
+                    <div class="gallery-item" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&fm=webp" alt="Panvel Warehouse Surveillance" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
                         <div class="gallery-overlay">
                             <span>Panvel Warehouse: 8 outdoor bullet cameras with 60-day backup.</span>
                         </div>
                     </div>
-                    <div class="gallery-item" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400&fm=webp');" loading="lazy">
+                    <div class="gallery-item" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400&fm=webp" alt="Andheri Apartment Security" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
                         <div class="gallery-overlay">
                             <span>Andheri Apartment: 2 dome cameras for entry security.</span>
                         </div>
                     </div>
-                    <div class="gallery-item" tabindex="0" style="background-image: url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=400&fm=webp');" loading="lazy">
+                    <div class="gallery-item" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=400&fm=webp" alt="Nerul Showroom Cameras" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
                         <div class="gallery-overlay">
                             <span>Nerul Showroom: 6 high-res cameras with alarm system.</span>
                         </div>
@@ -722,7 +736,7 @@
                 <!-- Column 1: Brand -->
                 <div class="footer-col footer-brand">
                     <a href="#" class="footer-logo" aria-label="SecureViewSolutions Home">
-                        <img src="img/logo.png" alt="SecureViewSolutions Logo" class="logo-img" width="180" height="44" loading="lazy">
+                        <img src="img/logo.png" alt="SecureViewSolutions Logo" class="logo-img" width="180" height="44" loading="lazy" decoding="async">
                     </a>
                     <div class="brand-content">
                         <p class="brand-desc">Enterprise-grade security infrastructure and IT solutions for Mumbai’s most critical assets.</p>
@@ -817,11 +831,5 @@
 
     <!-- Scripts -->
     <script src="script.js" defer></script>
-    <script>
-        // Initialize Lucide icons after DOM is ready
-        window.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) lucide.createIcons();
-        });
-    </script>
 </body>
 </html>
