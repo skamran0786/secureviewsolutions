@@ -164,6 +164,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initLucide();
 
     /**
+     * Service Worker Registration for Caching & Performance
+     */
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+    }
+
+    /**
      * FAQ Accordion Logic
      */
     const faqItems = document.querySelectorAll('.faq-item');
@@ -238,16 +247,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     contactForm.classList.add('hidden');
                     successState.classList.remove('hidden');
                     
-                    // Optional: Open WhatsApp as well if you still want that
-                    const whatsappNumber = "919136098583"; 
-                    const serviceText = serviceInput.selectedIndex !== -1 ? serviceInput.options[serviceInput.selectedIndex].text : 'Not selected';
-                    const text = `*New Request Call Back*%0a` +
-                                 `*Name:* ${encodeURIComponent(nameInput.value.trim())}%0a` +
-                                 `*Phone:* ${encodeURIComponent(phoneInput.value.trim())}%0a` +
-                                 `*Service:* ${encodeURIComponent(serviceText)}%0a` +
-                                 `*Brief:* ${encodeURIComponent(messageInput.value.trim() || 'No message provided')}`;
-                    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${text}`;
-                    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
+                    // Device Detection for WhatsApp Redirection
+                    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+                    
+                    if (isMobile) {
+                        const whatsappNumber = "919136098583"; 
+                        const serviceText = serviceInput.selectedIndex !== -1 ? serviceInput.options[serviceInput.selectedIndex].text : 'Not selected';
+                        const text = `*New Request Call Back*%0a` +
+                                     `*Name:* ${encodeURIComponent(nameInput.value.trim())}%0a` +
+                                     `*Phone:* ${encodeURIComponent(phoneInput.value.trim())}%0a` +
+                                     `*Service:* ${encodeURIComponent(serviceText)}%0a` +
+                                     `*Brief:* ${encodeURIComponent(messageInput.value.trim() || 'No message provided')}`;
+                        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${text}`;
+                        window.open(whatsappLink, '_blank', 'noopener,noreferrer');
+                    }
                 } else {
                     console.log(response);
                     alert(json.message);
