@@ -4,7 +4,8 @@ const ASSETS = [
   '/index.html',
   '/style.css',
   '/script.js',
-  '/img/logo.png',
+  'https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,w_180/v1775406492/My%20Brand/logo_o30lrg.png',
+  'https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,w_220/v1775405708/logo%20white%20background.png',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
   'https://unpkg.com/lucide@0.359.0/dist/umd/lucide.min.js'
 ];
