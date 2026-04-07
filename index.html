@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert CCTV & IT Support Mumbai | SecureView Solutions</title>
-    <meta name="description" content="Protect your property with expert CCTV installation & IT support in Mumbai. Enjoy same-day setup, 10+ years expertise & 2-year warranties. Get a free quote!">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://www.secureviewsolutions.in/">
+    <title>SecureViewSolutions - Premium IT & Security Solutions Mumbai</title>
+    <meta name="description" content="Expert CCTV installation, managed IT support, and web development in Mumbai & Navi Mumbai. Enterprise-grade security for homes and businesses.">
     
     <!-- Favicon Placeholder -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
@@ -24,23 +22,56 @@
     <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Critical Resources Preload -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     
     <!-- Icons (Specific Version for Caching) -->
     <script src="https://unpkg.com/lucide@0.359.0/dist/umd/lucide.min.js" defer></script>
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Critical CSS (Above the Fold) -->
+    <style>
+        :root {
+            --primary: #020617; --primary-light: #0f172a; --accent: #2563eb; --accent-hover: #1d4ed8;
+            --accent-soft: #f0f9ff; --bg-main: #ffffff; --bg-light: #f8fafc; --text-main: #0f172a;
+            --text-muted: #475569; --border: #e2e8f0; --radius-sm: 8px; --radius-md: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body.loading { overflow: hidden; }
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-main);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;
+        }
+        .preloader-logo { width: 220px; height: auto; animation: preloaderPulse 2s infinite ease-in-out; }
+        @keyframes preloaderPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1.5rem 0; transition: all 0.5s ease; }
+        .hero { padding-top: 12rem; padding-bottom: 8rem; background: #ffffff; position: relative; text-align: center; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; letter-spacing: -0.05em; color: var(--primary); line-height: 1.1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+    </style>
+
+    <!-- Optimized Resource Loading -->
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     
     <!-- Preload Critical Hero Image (LCP Optimization) -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" imagesrcset="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400 400w, https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800 800w" imagesizes="(max-width: 768px) 400px, 800px">
+    <!-- Optimized with Cloudinary: f_auto (format), q_auto (quality), w (width) -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" 
+          imagesrcset="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400 400w, 
+                       https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800 800w,
+                       https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_1200/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1200 1200w" 
+          imagesizes="(max-width: 768px) 100vw, 800px">
 </head>
 <body class="loading">
     <!-- Preloader -->
     <div id="preloader" aria-hidden="true">
         <div class="preloader-content">
-            <img src="img/logo.png" alt="SecureViewSolutions Logo" class="preloader-logo" width="220" height="54" decoding="async">
+            <!-- Logo Optimized with Cloudinary (White BG version for clarity) -->
+            <img src="https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,w_220/v1775405708/logo%20white%20background.png" 
+                 alt="SecureViewSolutions Logo" 
+                 class="preloader-logo" 
+                 width="220" height="54" 
+                 fetchpriority="high"
+                 decoding="async">
             <div class="loading-bar-container">
                 <div class="loading-bar"></div>
             </div>
@@ -55,7 +86,12 @@
         <div class="container">
             <nav class="nav" aria-label="Main Navigation">
                 <a href="#" class="logo" aria-label="SecureViewSolutions Home">
-                    <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775406492/My%20Brand/logo_o30lrg.png" alt="SecureViewSolutions Logo" class="logo-img" width="180" height="44" fetchpriority="high" decoding="async">
+                    <img src="https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,w_180/v1775406492/My%20Brand/logo_o30lrg.png" 
+                         alt="SecureViewSolutions Logo" 
+                         class="logo-img" 
+                         width="180" height="44" 
+                         fetchpriority="high" 
+                         decoding="async">
                 </a>
                 <ul class="nav-links" id="nav-menu">
                     <li><a href="#home">Home</a></li>
@@ -218,7 +254,16 @@
                     <!-- Left Side: Visual Element -->
                     <div class="why-visual">
                         <div class="visual-card">
-                            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" alt="SecureView Solutions Technology" class="visual-image" loading="lazy" width="800" height="600" decoding="async">
+                            <img src="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" 
+                                 srcset="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400 400w,
+                                         https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800 800w,
+                                         https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_1200/https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1200 1200w"
+                                 sizes="(max-width: 992px) 100vw, 50vw"
+                                 alt="SecureView Solutions Technology" 
+                                 class="visual-image" 
+                                 loading="lazy" 
+                                 width="800" height="1000" 
+                                 decoding="async">
                             <div class="stats-overlay">
                                 <div class="stat-pill">
                                     <i data-lucide="shield-check"></i>
@@ -252,7 +297,7 @@
                                     <i data-lucide="verified" aria-hidden="true"></i>
                                 </div>
                                 <div class="feature-text">
-                                <h3>Certified Security Experts</h3>
+                                    <h4>Certified Security Experts</h4>
                                     <p>Background-verified professionals with specialized training in high-security environments.</p>
                                 </div>
                             </div>
@@ -262,7 +307,7 @@
                                     <i data-lucide="cpu" aria-hidden="true"></i>
                                 </div>
                                 <div class="feature-text">
-                                <h3>Hardware Partners</h3>
+                                    <h4>Hardware Partners</h4>
                                     <p>Official implementation partners for Hikvision, CP Plus, and Dahua enterprise solutions.</p>
                                 </div>
                             </div>
@@ -272,7 +317,7 @@
                                     <i data-lucide="headset" aria-hidden="true"></i>
                                 </div>
                                 <div class="feature-text">
-                                <h3>Priority SLA Support</h3>
+                                    <h4>Priority SLA Support</h4>
                                     <p>Guaranteed response times with dedicated technical account managers for every deployment.</p>
                                 </div>
                             </div>
@@ -354,7 +399,7 @@
                             <div class="client-avatar">SS</div>
                             <div class="client-meta">
                                 <strong>Sabir Siddiquee</strong>
-                                <span> House Owner</span>
+                                <span>Verified Customer // House Owner</span>
                             </div>
                         </div>
                         <div class="stars" aria-label="5 out of 5 stars">
@@ -402,20 +447,20 @@
                 <div class="pricing-grid">
                     <!-- 4 Camera Set -->
                     <article class="pricing-card">
-                        <h3>Home Security</h3>
+                        <h3>Foundation Set</h3>
                         <div class="price">
                             <span class="currency">₹</span>
-                            <span class="amount">23,500*</span>
+                            <span class="amount">16,500</span>
                         </div>
                         <ul class="pricing-features">
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 4 HD Cameras</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 7-10 Days Recording Backup </li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 4-Channel DVR setup</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Mobile Live View Anytime</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 3 months service support</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 4 HD Night Vision Cameras</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 500GB Surveillance Grade HDD</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 4-Channel Turbo HD DVR</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Global Mobile Access Config</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 1 Year Replacement Warranty</li>
                         </ul>
                         <a href="#contact" class="btn btn-outline btn-full">
-                            <span>Get Final Price</span>
+                            <span>Request Quote</span>
                             <i data-lucide="arrow-right" aria-hidden="true"></i>
                         </a>
                     </article>
@@ -423,47 +468,46 @@
                     <!-- 8 Camera Set -->
                     <article class="pricing-card featured">
                         <div class="pricing-badge">Business Choice</div>
-                        <h3>Shop & Office Security</h3>
+                        <h3>Professional Set</h3>
                         <div class="price">
                             <span class="currency">₹</span>
-                            <span class="amount">39,999*</span>
+                            <span class="amount">32,999</span>
                         </div>
                         <ul class="pricing-features">
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 8 Full HD Cameras</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 15–20 Days Recording</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 8-Channel DVR setup</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Remote Access + Playback</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 1 year service support</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Most Popular for Shops & Offices</li>
-                       </ul>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 8 Full HD Smart Cameras</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 1TB Surveillance Grade HDD</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 8-Channel Smart Hybrid DVR</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Motion-Triggered Alerts</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 2 Years On-Site Warranty</li>
+                        </ul>
                         <a href="#contact" class="btn btn-primary btn-full">
-                            <span>Book Free Site Visit</span>
+                            <span>Select Package</span>
                             <i data-lucide="arrow-right" aria-hidden="true"></i>
                         </a>
                     </article>
 
                     <!-- 16 Camera Set -->
                     <article class="pricing-card">
-                        <h3>Warehouse / Building Security</h3>
+                        <h3>Enterprise Set</h3>
                         <div class="price">
                             <span class="currency">₹</span>
-                            <span class="amount">78,500*</span>
+                            <span class="amount">64,500</span>
                         </div>
                         <ul class="pricing-features">
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 16 Cameras (Full Area Coverage)</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 20–30 Days Recording</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 16-Channel Setup</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Multi-User Monitoring</li>
-                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 2 years service support </li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 16 IP-Based Digital Cameras</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 2TB Enterprise Grade Storage</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> 16-Channel 4K NVR Setup</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Multi-User Admin Controls</li>
+                            <li><i data-lucide="check-circle" aria-hidden="true"></i> Priority Tech Support (1 Year)</li>
                         </ul>
                         <a href="#contact" class="btn btn-outline btn-full">
-                            <span>Call Now – 9136729371</span>
+                            <span>Contact Enterprise Sales</span>
                             <i data-lucide="arrow-right" aria-hidden="true"></i>
                         </a>
                     </article>
                 </div>
                 <div class="pricing-footer">
-                    <p><i data-lucide="info" aria-hidden="true"></i> <strong>Billing Policy:</strong> * Price includes hardware & standard installation. Wiring charged separately (₹30–₹35/mtr) based on actual usage. Final cost confirmed before installation—no hidden charges.</p>
+                    <p><i data-lucide="info" aria-hidden="true"></i> <strong>Billing Policy:</strong> Packages include Hardware + Installation. High-quality copper wiring is billed as per actual length used (₹20-₹25/mtr) to ensure you only pay for what you need.</p>
                 </div>
                 <div class="trust-badges-row">
                     <div class="trust-badge-item">
@@ -495,37 +539,68 @@
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item" tabindex="0">
-                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775460856/ChatGPT_Image_Apr_6_2026_01_03_43_PM_djrqas.png" alt="Complete 16+ Camera CCTV Installation" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
+                        <!-- Project Gallery Image: Enhanced with Cloudinary (Gen Restore + Auto Sizing) -->
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_gen_restore,e_improve,e_sharpen,w_400/v1775406900/IMG_20250923_205703_jl7oee.jpg" 
+                             srcset="https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_gen_restore,e_improve,e_sharpen,w_400/v1775406900/IMG_20250923_205703_jl7oee.jpg 400w,
+                                     https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_gen_restore,e_improve,e_sharpen,w_800/v1775406900/IMG_20250923_205703_jl7oee.jpg 800w,
+                                     https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_gen_restore,e_improve,e_sharpen,w_1200/v1775406900/IMG_20250923_205703_jl7oee.jpg 1200w"
+                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                             alt="Recent CCTV Installation Project" class="gallery-img" loading="lazy" width="400" height="350" decoding="async">
                         <div class="gallery-overlay">
-                            <span>Complete 16+ Camera CCTV Installation with Centralized Rack & Live Monitoring Setup</span>
+                            <span>Recent Project: Professional CCTV setup with high-res monitoring.</span>
                         </div>
                     </div>
                     <div class="gallery-item" tabindex="0">
-                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775462410/ChatGPT_Image_Apr_6_2026_01_28_21_PM_ogroib.png" alt="Outdoor CCTV Installation" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_improve,e_sharpen,w_400/v1775460856/ChatGPT_Image_Apr_6_2026_01_03_43_PM_djrqas.png" 
+                             srcset="https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_improve,e_sharpen,w_400/v1775460856/ChatGPT_Image_Apr_6_2026_01_03_43_PM_djrqas.png 400w,
+                                     https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_improve,e_sharpen,w_800/v1775460856/ChatGPT_Image_Apr_6_2026_01_03_43_PM_djrqas.png 800w,
+                                     https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,e_improve,e_sharpen,w_1200/v1775460856/ChatGPT_Image_Apr_6_2026_01_03_43_PM_djrqas.png 1200w"
+                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                             alt="16+ Camera CCTV Installation" class="gallery-img" loading="lazy" width="400" height="350" decoding="async">
                         <div class="gallery-overlay">
-                            <span>Outdoor CCTV Installation with Clean Cabling & Wide-Angle Street Coverage</span>
+                            <span>Complete 16+ Camera CCTV Installation with Centralized Rack & Live Monitoring Setup.</span>
                         </div>
                     </div>
                     <div class="gallery-item" tabindex="0">
-                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775468609/Enterprise-Level_CCTV_Network_Rack_Installation_with_Structured_Cabling._uynhry.png" alt="Enterprise-Level CCTV & Network Rack Installation with Structured Cabling" class="gallery-img" loading="lazy" decoding="async">
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=400" 
+                             srcset="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=400 400w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800 800w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_1200/https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200 1200w"
+                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                             alt="Thane Home Security" class="gallery-img" loading="lazy" width="400" height="350" decoding="async">
                         <div class="gallery-overlay">
-                            <span>Enterprise-Level CCTV & Network Rack Installation with Structured Cabling.</span>
+                            <span>Thane Home: 4 night vision cameras with video door phone.</span>
                         </div>
                     </div>
                     <div class="gallery-item" tabindex="0">
-                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775474317/Wall-Mounted_CCTV_Rack_Setup_with_Concealed_Wiring_Clean_Installation_Finish_awmqfw.png" alt="Professional Wall-Mounted CCTV Rack Installation with Concealed Conduit Wiring" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400" 
+                             srcset="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400 400w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800 800w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_1200/https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200 1200w"
+                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                             alt="Panvel Warehouse Surveillance" class="gallery-img" loading="lazy" width="400" height="350" decoding="async">
                         <div class="gallery-overlay">
-                            <span>Professional Wall-Mounted CCTV Rack Installation with Concealed Conduit Wiring.</span>
+                            <span>Panvel Warehouse: 8 outdoor bullet cameras with 60-day backup.</span>
                         </div>
                     </div>
                     <div class="gallery-item" tabindex="0">
-                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775476368/Advanced_Multi-Screen_CCTV_Monitoring_System_for_Centralized_Surveillance_2_w59l0e.png" alt="Advanced Multi-Screen CCTV Monitoring System" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400" 
+                             srcset="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400 400w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800 800w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_1200/https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200 1200w"
+                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                             alt="Andheri Apartment Security" class="gallery-img" loading="lazy" width="400" height="350" decoding="async">
                         <div class="gallery-overlay">
-                            <span>Advanced Multi-Screen CCTV Monitoring System for Centralized Surveillance.</span>
+                            <span>Andheri Apartment: 2 dome cameras for entry security.</span>
                         </div>
                     </div>
                     <div class="gallery-item" tabindex="0">
-                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=400&fm=webp" alt="Nerul Showroom Cameras" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=400" 
+                             srcset="https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_400/https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=400 400w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_800/https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800 800w,
+                                     https://res.cloudinary.com/dvx76fscz/image/fetch/f_auto,q_auto,w_1200/https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1200 1200w"
+                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                             alt="Nerul Showroom Cameras" class="gallery-img" loading="lazy" width="400" height="350" decoding="async">
                         <div class="gallery-overlay">
                             <span>Nerul Showroom: 6 high-res cameras with alarm system.</span>
                         </div>
@@ -604,7 +679,7 @@
                             <div class="contact-item">
                                 <i data-lucide="phone-call" aria-hidden="true"></i>
                                 <div>
-                                <h3>Direct Hotline</h3>
+                                    <h4>Direct Hotline</h4>
                                     <div class="contact-links-group">
                                         <a href="tel:+919136098583" aria-label="Call Direct Hotline 1">+91 91360 98583</a>
                                         <a href="tel:+919136729371" aria-label="Call Direct Hotline 2">+91 91367 29371</a>
@@ -614,7 +689,7 @@
                             <div class="contact-item">
                                 <i data-lucide="mail" aria-hidden="true"></i>
                                 <div>
-                                <h3>Official Inquiry</h3>
+                                    <h4>Official Inquiry</h4>
                                     <div class="contact-links-group">
                                         <a href="mailto:Secureviewsolutions7@gmail.com" aria-label="Send an official email to SecureViewSolutions">Secureviewsolutions7@gmail.com</a>
                                     </div>
@@ -623,7 +698,7 @@
                             <div class="contact-item">
                                 <i data-lucide="map-pin" aria-hidden="true"></i>
                                 <div>
-                                <h3>Headquarters</h3>
+                                    <h4>Headquarters</h4>
                                     <p>Navi Mumbai, MH, India</p>
                                 </div>
                             </div>
@@ -739,7 +814,12 @@
                 <!-- Column 1: Brand -->
                 <div class="footer-col footer-brand">
                     <a href="#" class="footer-logo" aria-label="SecureViewSolutions Home">
-                        <img src="img/logo.png" alt="SecureViewSolutions Logo" class="logo-img" width="180" height="44" loading="lazy" decoding="async">
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/f_auto,q_auto,w_180/v1775406492/My%20Brand/logo_o30lrg.png" 
+                             alt="SecureViewSolutions Logo" 
+                             class="logo-img" 
+                             width="180" height="44" 
+                             loading="lazy" 
+                             decoding="async">
                     </a>
                     <div class="brand-content">
                         <p class="brand-desc">Enterprise-grade security infrastructure and IT solutions for Mumbai’s most critical assets.</p>

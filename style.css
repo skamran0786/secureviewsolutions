@@ -1473,7 +1473,7 @@ section {
     color: white;
 }
 
-.feature-text h3 {
+.feature-text h4 {
     font-size: 1.125rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -2320,7 +2320,7 @@ section {
         margin: 0;
     }
 
-    .contact-details .contact-item h3 {
+    .contact-details .contact-item h4 {
         font-size: 1.0625rem;
     }
 
