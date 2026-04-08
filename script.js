@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const toggleMobileMenu = () => {
         const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-        mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+        mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded)); // Explicitly convert boolean to string
         nav.classList.toggle('active');
         
         if (!isExpanded) {
@@ -32,10 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.width = '100%';
         } else {
             const scrollY = document.body.style.top;
+            const scrollPos = parseInt(scrollY, 10) * -1; // Use radix for parseInt
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
-            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            window.scrollTo(0, isNaN(scrollPos) ? 0 : scrollPos); // Handle potential NaN from parseInt
         }
         
         const icon = mobileMenuBtn.querySelector('i');
@@ -191,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const successState = document.getElementById('form-success');
     const resetFormBtn = document.getElementById('reset-form');
 
+    const formErrorDisplay = document.getElementById('form-error-display'); // Assuming this element exists or will be added
     if (contactForm && successState) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -200,6 +202,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const serviceInput = document.getElementById('service');
             const messageInput = document.getElementById('message');
             const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+            // Clear previous general form errors
+            if (formErrorDisplay) formErrorDisplay.classList.add('hidden');
+            if (formErrorDisplay) formErrorDisplay.textContent = '';
             
             // Simple validation UI
             let hasError = false;
@@ -263,12 +269,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } else {
                     console.log(response);
-                    alert(json.message);
+                    const errorMessage = json.message || "Something went wrong! Please try again.";
+                    if (formErrorDisplay) {
+                        formErrorDisplay.textContent = errorMessage;
+                        formErrorDisplay.classList.remove('hidden');
+                        formErrorDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        alert(errorMessage); // Fallback to alert if no display element
+                    }
                 }
             })
             .catch(error => {
                 console.log(error);
-                alert("Something went wrong!");
+                if (formErrorDisplay) { formErrorDisplay.textContent = "Network error. Please check your internet connection."; formErrorDisplay.classList.remove('hidden'); } else { alert("Network error. Please check your internet connection."); }
             })
             .then(function() {
                 submitBtn.disabled = false;
