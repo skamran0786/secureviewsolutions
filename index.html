@@ -8,7 +8,42 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://www.secureviewsolutions.in/">
     
-    <!-- Favicon Placeholder -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SecureView Solutions">
+    <meta property="og:url" content="https://www.secureviewsolutions.in/">
+    <meta property="og:title" content="Expert CCTV & IT Support Mumbai | SecureView Solutions">
+    <meta property="og:description" content="Protect your property with expert CCTV installation & IT support in Mumbai. Enjoy same-day setup, 10+ years expertise & 2-year warranties. Get a free quote!">
+    <meta property="og:image" content="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775406492/My%20Brand/logo_o30lrg.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Expert CCTV & IT Support Mumbai | SecureView Solutions">
+    <meta name="twitter:description" content="Protect your property with expert CCTV installation & IT support in Mumbai. Enjoy same-day setup, 10+ years expertise & 2-year warranties. Get a free quote!">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775406492/My%20Brand/logo_o30lrg.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SecuritySystemSupplier",
+      "name": "SecureView Solutions",
+      "url": "https://www.secureviewsolutions.in/",
+      "logo": "https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775406492/My%20Brand/logo_o30lrg.png",
+      "description": "Expert CCTV installation & IT support in Mumbai and Navi Mumbai with same-day service and 2-year warranty.",
+      "telephone": "+919136098583",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Navi Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      },
+      "priceRange": "₹₹",
+      "openingHours": "Mo-Sa 09:00-20:00"
+    }
+    </script>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 
     <!-- Performance: Resource Hints & Preconnects -->
@@ -17,14 +52,14 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
     
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Critical Resources Preload -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     
     <!-- Icons (Specific Version for Caching) -->
@@ -32,9 +67,6 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Preload Critical Hero Image (LCP Optimization) -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" imagesrcset="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=400 400w, https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800 800w" imagesizes="(max-width: 768px) 400px, 800px">
 </head>
 <body class="loading">
     <!-- Preloader -->
@@ -52,6 +84,7 @@
 
     <!-- Header/Nav -->
     <header class="header" id="header">
+        <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
         <div class="container">
             <nav class="nav" aria-label="Main Navigation">
                 <a href="#" class="logo" aria-label="SecureViewSolutions Home">
@@ -64,8 +97,8 @@
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li class="mobile-cta">
-                        <a href="tel:+919136098583" class="btn btn-primary nav-cta">
-                            <i data-lucide="phone" aria-hidden="true"></i> Get Free Quote
+                        <a href="tel:+919136098583" class="btn btn-primary nav-cta mobile-nav-cta">
+                            <i data-lucide="phone" aria-hidden="true"></i> <span>Get Free Quote</span>
                         </a>
                     </li>
                 </ul>
@@ -81,7 +114,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <!-- SEO Optimized Intro (Visually Hidden but present for SEO) -->
         <section class="seo-intro visually-hidden" aria-label="Introduction">
             <div class="container">
@@ -535,7 +568,7 @@
                         </div>
                     </div>
                     <div class="gallery-item" tabindex="0">
-                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775468609/Enterprise-Level_CCTV_Network_Rack_Installation_with_Structured_Cabling._uynhry.png" alt="Enterprise-Level CCTV & Network Rack Installation with Structured Cabling" class="gallery-img" loading="lazy" decoding="async">
+                        <img src="https://res.cloudinary.com/dvx76fscz/image/upload/q_auto/f_auto/v1775468609/Enterprise-Level_CCTV_Network_Rack_Installation_with_Structured_Cabling._uynhry.png" alt="Enterprise-Level CCTV & Network Rack Installation with Structured Cabling" class="gallery-img" loading="lazy" width="400" height="300" decoding="async">
                         <div class="gallery-overlay">
                             <span>Enterprise-Level CCTV & Network Rack Installation with Structured Cabling.</span>
                         </div>
@@ -571,7 +604,7 @@
                 </div>
                 <div class="faq-grid">
                     <div class="faq-item">
-                        <button class="faq-question">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             <span>How long does the installation take?</span>
                             <i data-lucide="chevron-down" class="faq-icon" aria-hidden="true"></i>
                         </button>
@@ -580,7 +613,7 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             <span>Can I watch my cameras on my phone when I'm away?</span>
                             <i data-lucide="chevron-down" class="faq-icon" aria-hidden="true"></i>
                         </button>
@@ -589,7 +622,7 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             <span>What happens if the internet goes down?</span>
                             <i data-lucide="chevron-down" class="faq-icon" aria-hidden="true"></i>
                         </button>
@@ -598,7 +631,7 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             <span>Do you provide service in Thane or Panvel?</span>
                             <i data-lucide="chevron-down" class="faq-icon" aria-hidden="true"></i>
                         </button>
@@ -607,7 +640,7 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">
+                        <button type="button" class="faq-question" aria-expanded="false">
                             <span>What is the warranty on the cameras?</span>
                             <i data-lucide="chevron-down" class="faq-icon" aria-hidden="true"></i>
                         </button>
@@ -670,14 +703,17 @@
                     <div class="contact-form-container">
                         <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                             <input type="hidden" name="access_key" value="db1394e8-74df-4f8c-b404-1db73d87ce8b">
+                            <!-- Bot Spam Protection (Honeypot) -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
+                            <div id="form-error-display" class="form-error-display hidden" role="alert" aria-live="polite"></div>
                             <div class="form-group floating-label has-icon">
                                 <i data-lucide="user" class="input-icon" aria-hidden="true"></i>
-                                <input type="text" id="name" name="name" placeholder=" " required>
+                                <input type="text" id="name" name="name" placeholder=" " maxlength="100" required>
                                 <label for="name">Full Name</label>
                             </div>
                             <div class="form-group floating-label has-icon">
                                 <i data-lucide="phone" class="input-icon" aria-hidden="true"></i>
-                                <input type="tel" id="phone" name="phone" placeholder=" " inputmode="numeric" pattern="[0-9]*" required>
+                                <input type="tel" id="phone" name="phone" placeholder=" " inputmode="numeric" pattern="[0-9]{10,12}" maxlength="15" required>
                                 <label for="phone">Phone Number</label>
                             </div>
                             <div class="form-group floating-label has-icon">
@@ -692,7 +728,7 @@
                             </div>
                             <div class="form-group floating-label has-icon">
                                 <i data-lucide="message-square" class="input-icon" aria-hidden="true"></i>
-                                <textarea id="message" name="message" rows="3" placeholder=" "></textarea>
+                                <textarea id="message" name="message" rows="3" placeholder=" " maxlength="1500"></textarea>
                                 <label for="message">Message (Optional)</label>
                             </div>
                             <button type="submit" class="btn btn-primary btn-full btn-lg btn-animate btn-shimmer">
